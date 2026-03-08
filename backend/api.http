@@ -1,0 +1,12 @@
+# POST http://localhost:5000/register
+# Content-Type: application/json
+
+# {
+#   "username": "shree1234",
+#   "password": "123456",
+#   "email": "shree2@gmail.com",
+#   "name": "Shree Rajput",
+#   "active": true
+# }
+
+

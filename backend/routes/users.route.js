@@ -1,10 +1,8 @@
 import { Router } from "express";
-import { getUserAndProfile, login, register ,updateUserProfile,uploadProfilePicture} from "../controllers/user.controller.js";
+import { downloadResume, getAllUserProfile, getUserAndProfile, login, register ,updateProfileData,updateUserProfile,uploadProfilePicture} from "../controllers/user.controller.js";
 import multer from 'multer';
 
-
 const router = Router();
-
 
 const storage = multer.diskStorage({
     destination : (req, file, cb) => {
@@ -21,6 +19,8 @@ router.route("/update_profile_picture").post(upload.single("profile_picture"), u
 router.route("/register").post(register);
 router.route("/login").post(login);
 router.route("/user-update").post(updateUserProfile);
-
 router.route("/get_user_and_profile").get(getUserAndProfile);
+router.route("/update_profile_data").post(updateProfileData);
+router.route("users/get_all_user").get(getAllUserProfile);
+router.route("user/download_resume").get(downloadResume);
 export default router;

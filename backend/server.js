@@ -16,10 +16,23 @@ app.use(express.static("uploads"));
 app.use( postRoute);
 app.use(userRoute);
 
-const start = async() => {
-    const connectDB = await mongoose.connect(process.env.MONGO_URL);
-    app.listen(5000 , () => {
-        console.log("server is connected with PORT :" , 5000);
-    })
-}
+const start = async () => {
+  try {
+
+    console.log("Connecting to MongoDB...");
+
+    await mongoose.connect(process.env.MONGO_URL);
+
+    console.log("MongoDB connected");
+
+    app.listen(5000, () => {
+      console.log("Server running on PORT 5000");
+    });
+
+  } catch (err) {
+    console.log("DB Error:", err);
+  }
+};
+
+// start();
 start();

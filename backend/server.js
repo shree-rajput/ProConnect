@@ -11,6 +11,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 //relative path 
 app.use(express.static("uploads"));
 app.use( postRoute);

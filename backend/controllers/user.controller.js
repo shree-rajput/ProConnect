@@ -33,7 +33,7 @@ const convertProfileToPdf = async(userData) =>{
 
 
 export const register = async(req,res) => {
-    console.log(req.body);
+    // console.log(req.body);
     try{
         const {email , name , username , password} = req.body;
         if(!name || !email || !username || !password) {
@@ -104,7 +104,7 @@ export const uploadProfilePicture = async(req,res) => {
 
     const {token} = req.body;
     try{ 
-        console.log("Token from request:", token);
+        // console.log("Token from request:", token);
         const user = await User.findOne({token : token});
         if(!user){
             return res.status(400).json({message : "user not found"});
@@ -157,7 +157,7 @@ export const getUserAndProfile = async(req,res) => {
           const {token} = req.query;
           const user = await User.findOne({token : token});
          
-          console.log(`Token : ${token}`);
+        //   console.log(`Token : ${token}`);
 
           if(!user){
             return res.status(500).json({message : "user not found"});
